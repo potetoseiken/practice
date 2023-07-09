@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -20,5 +21,12 @@ class PostController extends Controller
     //投稿入力画面の表示
     public function create() {
         return view('posts.create');
+    }
+    
+    //DBへの投稿内容データ送信および、新規投稿詳細画面へのリダイレクト処理
+    public function store(PostRequest $request, Post $post) {
+        $input = $request['post'];
+        $post->fill($input)->save();
+        return redirect('/posts/'.$post->id);
     }
 }

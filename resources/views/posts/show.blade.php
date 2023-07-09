@@ -10,9 +10,10 @@
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1 class="title">
+        <h1>Blog Name</h1>
+        <h2 class="title">
             {{ $post->title }}
-        </h1>
+        </h2>
         <div class="content">
             <div class="post_content">
                 <h3>本文</h3>
