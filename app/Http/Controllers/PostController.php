@@ -42,4 +42,10 @@ class PostController extends Controller
         
         return redirect('/posts/'.$post->id);
     }
+    
+    //投稿内容削除実効
+    public function delete(Post $post) {
+        $post->delete();
+        return redirect('/');
+    }
 }
