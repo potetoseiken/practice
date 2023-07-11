@@ -29,4 +29,17 @@ class PostController extends Controller
         $post->fill($input)->save();
         return redirect('/posts/'.$post->id);
     }
+    
+    //投稿内容の編集画面の表示
+    public function edit(Post $post) {
+        return view('posts.edit') -> with(['post' => $post]);
+    }
+    
+    //投稿内容の変更内容をDBに送信する
+    public function update(PostRequest $request, Post $post) {
+        $input_post = $request['post'];
+        $post ->fill($input_post)->save();
+        
+        return redirect('/posts/'.$post->id);
+    }
 }

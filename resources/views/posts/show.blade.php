@@ -20,6 +20,9 @@
                 <p>{{ $post->body }}</p>
             </div>
         </div>
+        <p>この投稿の内容を編集したい場合は以下のボタンから専用画面に移行してください。</p>
+        <div class="edit"><a href="/posts/{{ $post->id }}/edit">編集</a></div>
+        <p>投稿一覧画面に戻る</p>
         <div class="footer">
             <a href="/">戻る</a>
         </div>
