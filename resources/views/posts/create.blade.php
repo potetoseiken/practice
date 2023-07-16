@@ -20,7 +20,6 @@
           @if ($errors->has('post.title'))
           <p class="error_message" style="color: red;">{{ $errors->first('post.title') }}</p>
           @endif
-
         </div>
         <div class="body">
           <h2>Body</h2>
@@ -28,7 +27,14 @@
           @if ($errors->has('post.body'))
           <p class="error_message" style="color: red;">{{ $errors->first('post.body') }}</p>
           @endif
-
+        </div>
+        <div class="category">
+          <h2>Category</h2>
+          <select name="post[category_id]">
+            @foreach($categories as $category)
+              <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+          </select>
         </div>
         <input type="submit" value="POST"/>
       </form>

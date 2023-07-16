@@ -11,15 +11,17 @@
     </head>
     <body>
         <h1>Blog Name</h1>
-        <h2 class="title">
-            {{ $post->title }}
+        <div class="title">
+            <h3>[タイトル]</h3>
+            <p>{{ $post->title }}</p>
         </h2>
         <div class="content">
             <div class="post_content">
-                <h3>本文</h3>
+                <h3>[本文]</h3>
                 <p>{{ $post->body }}</p>
             </div>
         </div>
+        <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
         <p>この投稿の内容を編集したい場合は以下のボタンから専用画面に移行してください。</p>
         <div class="edit"><a href="/posts/{{ $post->id }}/edit">編集</a></div>
         <p>投稿一覧画面に戻る</p>

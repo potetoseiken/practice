@@ -12,6 +12,7 @@
     </head>
     <body>
         <h1>Blog Name</h1>
+        <a href='/'>投稿一覧に戻る。</a>
         <div class="posts">
             <div class="post">
                 @foreach ($posts as $post)
