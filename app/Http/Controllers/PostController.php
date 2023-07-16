@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
+use App\Models\Category;
 
 class PostController extends Controller
 {
@@ -19,8 +20,8 @@ class PostController extends Controller
     }
     
     //投稿入力画面の表示
-    public function create() {
-        return view('posts.create');
+    public function create(Category $category) {
+        return view('posts.create')->with(['categories' => $category->get()]);
     }
     
     //DBへの投稿内容データ送信および、新規投稿詳細画面へのリダイレクト処理
@@ -48,4 +49,6 @@ class PostController extends Controller
         $post->delete();
         return redirect('/');
     }
+    
+    
 }
