@@ -11,7 +11,7 @@ class PostController extends Controller
 {
     //ホームページの表示
     public function index(Post $post) {
-        return view('posts.index') -> with(['posts' => $post->getPaginateBylimit()]);
+        return view('posts.index')-> with(['posts' => $post->getPaginateBylimit()]);
     }
     
     //全投稿表示画面の表示
@@ -27,6 +27,7 @@ class PostController extends Controller
     //DBへの投稿内容データ送信および、新規投稿詳細画面へのリダイレクト処理
     public function store(PostRequest $request, Post $post) {
         $input = $request['post'];
+        $input += ['user_id' => $request->user()->id];
         $post->fill($input)->save();
         return redirect('/posts/'.$post->id);
     }
@@ -39,6 +40,8 @@ class PostController extends Controller
     //投稿内容の変更内容をDBに送信する
     public function update(PostRequest $request, Post $post) {
         $input_post = $request['post'];
+         $input += ['user_id' => $request->user()->id];
+
         $post ->fill($input_post)->save();
         
         return redirect('/posts/'.$post->id);

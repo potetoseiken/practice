@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Blog</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    </head>
-    <body>
-      <h1 class="title">投稿内容編集画面</h1>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Edit') }}
+        </h2>
+    </x-slot>
+   <h1 class="title">投稿内容編集画面</h1>
       <div class="content">
           <form action="/posts/{{ $post->id }}" method="POST">
               @csrf
@@ -27,5 +20,4 @@
               <input type='submit' value='変更を保存'/>
           </form> 
       </div>
-    </body>
-</html>
+</x-app-layout>
