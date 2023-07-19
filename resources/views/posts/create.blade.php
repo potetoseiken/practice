@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Blog</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    </head>
-    <body>
-      <h1>Blog Name</h1>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Create') }}
+        </h2>
+    </x-slot>
+   <h1>暇人の募る場所</h1>
       <form action="/posts" method="POST">
         @csrf
         <div class="title">
@@ -41,5 +34,4 @@
       <div class="footer">
         <a href="/">戻る</a>
       </div>
-    </body>
-</html>
+</x-app-layout>
